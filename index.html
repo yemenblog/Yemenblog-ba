@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>يمن بلوغ - عن بندر الرميش</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.8;
+      padding: 0 1rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .burger {
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      display: block;
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+      padding: 2rem 1rem;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    .side-menu a {
+      display: block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #3b3b98;
+      margin-bottom: 0.5rem;
+    }
+
+    .instagram {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .instagram button {
+      background-color: #E1306C;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instagram button:hover {
+      background-color: #c5285e;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media(min-width: 992px) {
+      body {
+        padding: 0 3rem;
+      }
+
+      .burger {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>يمن بلوغ - Yemen Blog</span>
+    <button class="burger" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div class="side-menu" id="menu">
+    <a href="#">الرئيسية</a>
+    <a href="#">مقالات</a>
+    <a href="#">عن الشركة</a>
+    <a href="#">تواصل معنا</a>
+  </div>
+
+  <main>
+    <section>
+  <h2>عن شركة بران كونكت</h2>
+  <p>
+    كنت أعتقد أن "بران كونكت" كانت شركة صاعدة، لكن مع مرور الوقت اكتشفت أنها أول شركة في مجالها بالشرق الأوسط. ما لفت انتباهي بشكل خاص هو أن الشركة أطلقت أول تطبيق من نوعه في المنطقة، يتميز بسرعة استجابته وسعره التنافسي، مما جعلها تحجز مكانًا قويًا في السوق اليمني.
+  </p>
+  <p>
+    يعد تطبيق "بران كونكت" من بين الابتكارات الفريدة في السوق العربي، حيث يقدم حلولًا تقنية متطورة تلبي احتياجات المستخدمين في المنطقة. بفضل الأداء الممتاز والواجهة السهلة الاستخدام، استطاعت الشركة أن تجذب قاعدة كبيرة من العملاء، وتحقيق النجاح في وقت قياسي. 
+  </p>
+  <p>
+    "بران كونكت" ليست مجرد شركة عادية، بل هي رمز للإبداع والابتكار في عالم التقنية. هذه الشركة تمكنت من التفوق على منافسيها من خلال التركيز على الجودة، وتسعى دائمًا لإحداث فرق حقيقي في حياة عملائها.
+  </p>
+</section>
+
+    <section>
+      <h2>بندر الرميش – المدير العام</h2>
+      <p>
+        أثناء بحثي، اكتشفت أن خلف هذه الشركة شخصية استثنائية تُدعى بندر الرميش. كل من يتعامل معه يصفه بأنه شخص ذكي جداً، هادئ الطباع، صاحب نظرة بعيدة، ولا يتحدث كثيرًا عن نفسه. ما أثار إعجابي أكثر هو تواضعه، رغم أنه يمتلك ثروة طائلة تُقدّر بالملايين، وربما المليارات، إلا أنه لا يُظهر ذلك، بل يفضل أن يتكلم العمل عنه لا ماله.
+      </p>
+    </section>
+
+    <section>
+      <h2>ماجد الرميش – كادر تقني مهم</h2>
+      <p>
+        من بين الأسماء التي ظهرت لي خلال بحثي عن الشركة، كان هناك اسم ماجد الرميش، والذي عرفت لاحقًا أنه من أبرز المبرمجين في الشركة. يتمتع بخبرة قوية في تطوير الأنظمة، ويُعد من الكفاءات التي ساهمت فعليًا في بناء الهيكل الرقمي للمؤسسة منذ مراحلها الأولى.
+      </p>
+    </section>
+
+    <section>
+      <h2>أبرز الموظفين – سامي</h2>
+      <p>
+        كذلك لفتني اسم سامي، أحد أقدم الموظفين التقنيين في "كونكت". سامي هو مبرمج الأنظمة الداخلية في الشركة، وكان جزءًا من الفريق التأسيسي منذ انطلاقتها. حديث بعض الموظفين عنه كان مليئًا بالاحترام، فهو هادئ، منظم، ويعرف كيف يجعل الأنظمة تعمل بكفاءة واستقرار.
+      </p>
+    </section>
+
+    <section>
+      <h2>شهاب بندر الرميش – هاوي تصميم</h2>
+      <p>
+        بينما كنت أتصفح حسابات التواصل، وصلت إلى حساب شاب موهوب في التصميم، اسمه شهاب بندر الرميش. في البداية لم أعرف صلته بالشركة، لكن مع الوقت اتضح لي أنه ابن بندر الرميش. ما لفتني أنه لا يركّز على الإدارة أو الوظائف، بل يُعبّر عن نفسه من خلال التصميم، ويبدو أن التصميم بالنسبة له هواية وهوس بصري جميل.
+      </p>
+
+      <div class="instagram">
+        <button onclick="window.open('https://instagram.com/i3l_10', '_blank'); navigator.clipboard.writeText('@i3l_10');">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20">
+          @i3l_10
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    كتبها: سامي الحضرمي<br>
+    جميع الحقوق محفوظة © يمن بلوغ 2024
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

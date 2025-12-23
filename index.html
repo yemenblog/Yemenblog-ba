@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>يمن بلوغ - بران كونكت وبندر الرميش</title>
+  <title>يمن بلوغ - Yemen Blog</title>
 
-  <!-- تحسين السيو -->
-  <meta name="description" content="موقع يمن بلوغ يتناول قصة شركة بران كونكت والتعريف ببندر الرميش وماجد الرميش وسامي وشهاب، ودورهم في تطوير التقنية في اليمن والعالم العربي.">
-  <meta name="keywords" content="يمن بلوغ, بندر الرميش, شهاب بندر الرميش, ماجد الرميش, سامي, بران كونكت, شركة تقنية, تطبيق بران, المبرمجين اليمنيين, تصميم, اليمن, شباب اليمن, برمجيات, تكنولوجيا في اليمن, ريادة أعمال, منصات رقمية, Yemen Blog, Brann Connect, بندر, الرميش, سامي الحضرمي">
+  <!-- تحسين السيو لظهور شهاب بندر الرميش في نتائج البحث -->
+  <meta name="description" content="يمن بلوغ - منصة سامي الحضرمي. نغطي أخبار بران كونكت، وبندر الرميش، والقدسي والعبسي والكبسي. تنبيه: مقال شهاب بندر الرميش محجوب لأسباب الخصوصية.">
+  <meta name="keywords" content="يمن بلوغ, بندر الرميش, شهاب بندر الرميش, ماجد الرميش, بران كونكت, القدسي, العبسي, الكبسي, اليمن, الكريمي, محفظة جيب">
   <meta name="author" content="سامي الحضرمي">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="يمن بلوغ - بران كونكت وبندر الرميش" />
-  <meta property="og:description" content="تعرف على قصة نجاح شركة بران كونكت وأبرز الشخصيات فيها: بندر الرميش، شهاب، سامي، ماجد وغيرهم." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta property="og:locale" content="ar_AR" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --primary-blue: #3b3b98;
+      --danger: #e74c3c;
+      --white: #ffffff;
+      --bg: #f9f9f9;
+      --text: #222;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -30,25 +30,28 @@
     }
 
     body {
-      background-color: #f9f9f9;
-      color: #222;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.8;
-      padding: 0 1rem;
     }
 
+    /* هيدر التصميم الأول */
     header {
       position: sticky;
       top: 0;
-      background: #ffffff;
+      background: var(--white);
       padding: 10px 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-      z-index: 100;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-weight: bold;
+    }
+
+    .logo {
+      cursor: pointer;
+      font-size: 1.1rem;
     }
 
     .burger {
@@ -59,13 +62,14 @@
       display: block;
     }
 
+    /* المنيو الجانبي */
     .side-menu {
       position: fixed;
       top: 0;
       right: -250px;
       width: 250px;
       height: 100%;
-      background-color: #ffffff;
+      background-color: var(--white);
       box-shadow: -2px 0 8px rgba(0,0,0,0.1);
       padding: 2rem 1rem;
       transition: right 0.3s ease;
@@ -87,150 +91,231 @@
     main {
       max-width: 800px;
       margin: auto;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
+      min-height: 80vh;
     }
 
-    section {
-      margin-bottom: 2rem;
-    }
+    /* منطق العرض */
+    .view { display: none; }
+    .view.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    h2 {
-      color: #3b3b98;
-      margin-bottom: 0.5rem;
-    }
-
-    .instagram {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 1rem;
-    }
-
-    .instagram button {
-      background-color: #E1306C;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
+    /* شبكة المقالات */
+    .search-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 25px;
       font-size: 1rem;
+      outline: none;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card h3 { color: var(--primary-blue); font-size: 1.1rem; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #555; height: 55px; overflow: hidden; }
+
+    .card-meta {
+      margin-top: 15px;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.8rem;
+      color: #777;
     }
 
-    .instagram button:hover {
-      background-color: #c5285e;
+    .avatar-circle {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: bold; font-size: 0.8rem;
     }
+
+    /* صفحة المقال */
+    .article-full h2 { color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.8rem; }
+    .article-author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+    .btn-back { background: #eee; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer; margin-bottom: 1.5rem; }
+
+    /* شاشة الحظر */
+    .banned-section {
+      text-align: center;
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 12px;
+      border-top: 5px solid var(--danger);
+    }
+    .banned-section h2 { color: var(--danger); margin: 15px 0; }
+    .banned-details { background: #fffafa; border: 1px dashed #ffcccc; padding: 15px; border-radius: 8px; text-align: right; margin: 20px 0; }
 
     footer {
       text-align: center;
       margin-top: 3rem;
-      padding: 1rem 0;
+      padding: 2rem 0;
       font-size: 0.9rem;
       color: #777;
+      border-top: 1px solid #eee;
     }
 
-    @media(min-width: 992px) {
-      body {
-        padding: 0 3rem;
-      }
-
-      .burger {
-        display: none;
-      }
-    }
+    @media(min-width: 992px) { .burger { display: none; } }
   </style>
 </head>
 <body>
+
   <header>
-    <span>يمن بلوغ - Yemen Blog</span>
+    <span class="logo" onclick="showHome()">يمن بلوغ - Yemen Blog</span>
     <button class="burger" onclick="toggleMenu()">☰</button>
   </header>
 
   <div class="side-menu" id="menu">
-    <a href="#">الرئيسية</a>
-    <a href="#">مقالات</a>
+    <a href="#" onclick="showHome(); toggleMenu();">الرئيسية</a>
+    <a href="#" onclick="showHome(); toggleMenu();">المقالات</a>
     <a href="#">عن الشركة</a>
     <a href="#">تواصل معنا</a>
   </div>
 
   <main>
-    <section>
-      <h2>عن شركة بران كونكت</h2>
-      <p>
-        في البداية، كنت أظن أن "بران كونكت" هي مجرد شركة صاعدة، ولكن مع مرور الوقت اكتشفت أنها تعد من الشركات الرائدة في مجالها بالشرق الأوسط. ما لفت انتباهي بشكل خاص هو أن الشركة أطلقت أول تطبيق من نوعه في المنطقة، يتميز بسرعة استجابته وسعره التنافسي، مما جعلها تحجز مكانًا قويًا في السوق اليمني.
+    <!-- الصفحة الرئيسية -->
+    <div id="home-view" class="view active">
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن (القدسي، العبسي، الكبسي) أو اسم المقال..." onkeyup="filterArticles()">
+      <div class="articles-grid" id="articlesGrid"></div>
+    </div>
 
-يعد تطبيق "بران كونكت" من بين الابتكارات الفريدة في السوق العربي، حيث يقدم حلولًا تقنية متطورة تلبي احتياجات المستخدمين في المنطقة. بفضل الأداء الممتاز والواجهة السهلة الاستخدام، استطاعت الشركة أن تجذب قاعدة كبيرة من العملاء، وتحقيق النجاح في وقت قياسي.
+    <!-- عرض المقال الكامل -->
+    <div id="article-view" class="view">
+      <button class="btn-back" onclick="showHome()">← عودة للقائمة</button>
+      <div id="fullArticleBody"></div>
+    </div>
 
-كما أن "بران كونكت" ليست مجرد شركة عادية، بل هي رمز للإبداع والابتكار في عالم التقنية. هذه الشركة تمكنت من التفوق على منافسيها من خلال التركيز على الجودة، وتسعى دائمًا لإحداث فرق حقيقي في حياة عملائها.
-
-ولم يكن نجاح التطبيق مجرد صدفة، بل كان مدعومًا بفريق دعم قوي يتيح لجميع المستخدمين، بما في ذلك ذوي الاحتياجات الخاصة، الحصول على أفضل تجربة ممكنة. فقد أظهر التطبيق مرونة كبيرة في تلبيته لاحتياجات الأشخاص ذوي الإعاقة البصرية، وهو ما ساعد في تحسين تجربة استخدامهم بشكل كبير.
-
-كما قام يوتيوبر من مدينة المكلا بتصوير فيديو يوضح تجربة أحد الأشخاص من ذوي الإعاقة البصرية في استخدام التطبيق. في الفيديو، استعرض كيف ساعده فريق الدعم في "بران كونكت" على التغلب على التحديات التي يواجهها أثناء استخدام التطبيق.
-
-
-      </p>
-      <p>
-        يعد تطبيق "بران كونكت" من بين الابتكارات الفريدة في السوق العربي، حيث يقدم حلولًا تقنية متطورة تلبي احتياجات المستخدمين في المنطقة. بفضل الأداء الممتاز والواجهة السهلة الاستخدام، استطاعت الشركة أن تجذب قاعدة كبيرة من العملاء، وتحقيق النجاح في وقت قياسي. 
-      </p>
-      <p>
-        "بران كونكت" ليست مجرد شركة عادية، بل هي رمز للإبداع والابتكار في عالم التقنية. هذه الشركة تمكنت من التفوق على منافسيها من خلال التركيز على الجودة، وتسعى دائمًا لإحداث فرق حقيقي في حياة عملائها.
-      </p>
-    </section>
-
-    <section>
-      <h2>بندر الرميش – المدير العام</h2>
-      <p>
-        أثناء بحثي، اكتشفت أن خلف هذه الشركة شخصية استثنائية تُدعى بندر الرميش. كل من يتعامل معه يصفه بأنه شخص ذكي جداً، هادئ الطباع، صاحب نظرة بعيدة، ولا يتحدث كثيرًا عن نفسه. ما أثار إعجابي أكثر هو تواضعه، رغم أنه يمتلك ثروة طائلة تُقدّر بالملايين، وربما المليارات، إلا أنه لا يُظهر ذلك، بل يفضل أن يتكلم العمل عنه لا ماله.
-      </p>
-    </section>
-
-    <section>
-      <h2>ماجد الرميش – كادر تقني مهم</h2>
-      <p>
-        من بين الأسماء التي ظهرت لي خلال بحثي عن الشركة، كان هناك اسم ماجد الرميش، والذي عرفت لاحقًا أنه من أبرز المبرمجين في الشركة. يتمتع بخبرة قوية في تطوير الأنظمة، ويُعد من الكفاءات التي ساهمت فعليًا في بناء الهيكل الرقمي للمؤسسة منذ مراحلها الأولى.
-      </p>
-    </section>
-
-    <section>
-      <h2>أبرز الموظفين – سامي</h2>
-      <p>
-        كذلك لفتني اسم سامي، أحد أقدم الموظفين التقنيين في "كونكت". سامي هو مبرمج الأنظمة الداخلية في الشركة، وكان جزءًا من الفريق التأسيسي منذ انطلاقتها. حديث بعض الموظفين عنه كان مليئًا بالاحترام، فهو هادئ، منظم، ويعرف كيف يجعل الأنظمة تعمل بكفاءة واستقرار.
-      </p>
-    </section>
-
-    <section>
-      <h2>شهاب بندر الرميش – هاوي تصميم</h2>
-      <p>
-        بينما كنت أتصفح حسابات التواصل، وصلت إلى حساب شاب موهوب في التصميم، اسمه شهاب بندر الرميش. في البداية لم أعرف صلته بالشركة، لكن مع الوقت اتضح لي أنه ابن بندر الرميش. ما لفتني أنه لا يركّز على الإدارة أو الوظائف، بل يُعبّر عن نفسه من خلال التصميم، ويبدو أن التصميم بالنسبة له هواية وهوس بصري جميل.
-      </p>
-
-      <div class="instagram">
-        <button onclick="window.open('https://instagram.com/i3l_10', '_blank'); navigator.clipboard.writeText('@i3l_10');">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="20">
-          @i3l_10
-        </button>
-        
-       
+    <!-- شاشة الحظر -->
+    <div id="banned-view" class="view">
+      <div class="banned-section">
+        <div style="font-size: 4rem;">🔒</div>
+        <h2>وصول محظور</h2>
+        <p>عذراً، مقال <strong>(شهاب بندر الرميش)</strong> غير متاح حالياً.</p>
+        <div class="banned-details">
+          <strong>السبب القانوني:</strong><br>
+          تم إيقاف هذا المحتوى مؤقتًا بعد ورود بلاغ يفيد باحتوائه على معلومات خاصة. وحرصًا على الخصوصية، تم تعطيل المحتوى إلى حين المراجعة.
+        </div>
+        <button class="btn-back" style="background: var(--primary-blue); color: #fff;" onclick="showHome()">استكشاف مقالات أخرى</button>
       </div>
-      
-    </section>
-     <h2> ابناء بندر الاخرون</h2>
-     <section>لبندر الرميش أبناء آخرون غير شهاب، ولكنهم غير معروفين للعلن. يُعرف شهاب لأنه يظهر بجانب والده كثيرًا.
-</section>
+    </div>
   </main>
 
   <footer>
     كتبها: سامي الحضرمي<br>
-    جميع الحقوق محفوظة © يمن بلوغ 2024
+    جميع الحقوق محفوظة © يمن بلوغ 2024 - 2025
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('active');
+    const authors = ["أحمد القدسي", "إبراهيم العبسي", "هاشم الكبسي", "وضاح الحضرمي", "سامي الشرجبي", "مجهول"];
+    const colors = ["#e67e22", "#3498db", "#9b59b6", "#27ae60", "#e74c3c", "#2c3e50"];
+    
+    let articles = [];
+
+    // المقال المحظور (في المقدمة للسيو)
+    articles.push({
+      title: "شهاب بندر الرميش - الإبداع في التصميم",
+      author: "أحمد القدسي",
+      isBanned: true,
+      excerpt: "مقال يتناول الجانب الفني والموهبة التصميمية لشهاب بندر الرميش.. [محجوب]"
+    });
+
+    // توليد الـ 249 مقال المتبقية
+    const topics = ["تحديثات بنك الكريمي", "مميزات محفظة جيب", "سوق الصرف في اليمن", "السياحة في سقطرى", "مستقبل بران كونكت"];
+    for(let i=1; i<250; i++){
+      const auth = authors[i % authors.length];
+      const topic = topics[i % topics.length] + " #" + i;
+      articles.push({
+        title: topic,
+        author: auth,
+        isBanned: false,
+        excerpt: `بقلم ${auth}، نستعرض أهم النقاط حول ${topic} وكيف تؤثر على المواطن اليمني..`,
+        fullContent: `
+          <div class="article-full">
+            <h2>${topic}</h2>
+            <div class="article-author-info">
+              <div class="avatar-circle" style="background:${colors[i % colors.length]}">${auth[0]}</div>
+              <span>بواسطة: <strong>${auth}</strong></span>
+              <span style="color:#999; font-size:0.8rem;">| 12 يناير 2025</span>
+            </div>
+            <p>يعتبر <strong>${topic}</strong> من المواضيع المهمة جداً في الساحة اليمنية حالياً. نناقش في هذا التقرير التفصيلي الجوانب التقنية والاقتصادية المرتبطة به.</p>
+            <p>يقول الكاتب <strong>${auth}</strong> أن التوجه نحو الحلول الرقمية مثل <em>تطبيق الكريمي ومحفظة جيب</em> هو المسار الصحيح لتجاوز العقبات المالية الراهنة.</p>
+            <p>نتمنى أن تكون هذه المعلومات مفيدة لجمهور "يمن بلوغ" العزيز، ونعدكم بمزيد من التغطيات الحصرية.</p>
+          </div>
+        `
+      });
     }
+
+    function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+
+    function showHome() {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById('home-view').classList.add('active');
+    }
+
+    function renderArticles(data) {
+      const grid = document.getElementById('articlesGrid');
+      grid.innerHTML = '';
+      data.forEach((art, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => {
+          if(art.isBanned) showBanned();
+          else {
+            document.getElementById('fullArticleBody').innerHTML = art.fullContent;
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('article-view').classList.add('active');
+            window.scrollTo(0,0);
+          }
+        };
+        const color = colors[idx % colors.length];
+        card.innerHTML = `
+          <h3>${art.title}</h3>
+          <p>${art.excerpt}</p>
+          <div class="card-meta">
+            <div class="avatar-circle" style="background:${color}">${art.author[0]}</div>
+            <span>الكاتب: ${art.author}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function showBanned() {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById('banned-view').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function filterArticles() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = articles.filter(a => a.title.toLowerCase().includes(q) || a.author.toLowerCase().includes(q));
+      renderArticles(filtered);
+    }
+
+    // الكود الذكي لفحص جوجل
+    window.onload = () => {
+      // إذا كان الزائر قادماً برابط يحتوي على شهاب أو بندر أو رميش
+      const currentUrl = window.location.href + document.referrer;
+      if(/شهاب|بندر|الرميش|shehab|ramish/i.test(currentUrl)) {
+        showBanned();
+      } else {
+        renderArticles(articles);
+      }
+    };
   </script>
 </body>
 </html>
